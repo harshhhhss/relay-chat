@@ -18,24 +18,21 @@ public class Client {
 
             Scanner scanner = new Scanner(System.in);
 
+            String welcome = input.readLine();
+            System.out.println("Server: " + welcome);
+
             while (true) {
                 System.out.print("You: ");
-                String clientMessage = scanner.nextLine();
+                String message = scanner.nextLine();
 
-                output.println(clientMessage);
+                output.println(message);
 
-                if (clientMessage.equalsIgnoreCase("exit")) {
+                String reply = input.readLine();
+                System.out.println("Server: " + reply);
+
+                if (message.equalsIgnoreCase("exit")) {
                     break;
                 }
-
-                String serverReply = input.readLine();
-
-                if (serverReply.equalsIgnoreCase("exit")) {
-                    System.out.println("Server closed the chat.");
-                    break;
-                }
-
-                System.out.println("Server: " + serverReply);
             }
 
             scanner.close();
